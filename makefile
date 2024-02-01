@@ -1,2 +1,2 @@
 run:
-	g++ src/main.cpp src/gameOfLife.cpp && ./a.out
+	g++ -Wall -Wextra src/main.cpp src/gameOfLife.cpp && ./a.out

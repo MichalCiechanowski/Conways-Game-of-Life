@@ -19,7 +19,7 @@ char gameOfLife::check(int x, int y) {
   //4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
   
   //1. 
-  static int sum;
+  int sum = 0;
   //corners
   if ((x == 0) && (y == 0)) {
     if (board.at(0).at(1) == 'X') {
@@ -118,24 +118,26 @@ char gameOfLife::check(int x, int y) {
     if (board.at(x + 1).at(y + 1) == 'X') sum++;
   }
   
-  if ((sum < 2) || sum > 3) return ' ';
+
   if (board.at(x).at(y) == 'X') {
-    if ((sum == 3) || (sum == 2)) return 'X';
+    if ((sum < 2) || (sum > 3)) return ' ';
+    if ((sum == 2) || (sum == 3)) return 'X';
+  } else if (sum == 3) {
+    return 'X';
   }
+  return ' ';
 }
 
 void gameOfLife::setStart() {  
-  //block
   board.at(1).at(1) = 'X';
   board.at(1).at(2) = 'X';
-  board.at(2).at(1) = 'X';
-  board.at(2).at(2) = 'X';
+  board.at(1).at(3) = 'X';
 }
 
 void gameOfLife::render() {
   system("clear");
-  for (int i = 0; i < board.size(); i++) {
-    for (int j = 0; j < board.at(0).size(); j++) {
+  for (long unsigned int i = 0; i < board.size(); i++) {
+    for (long unsigned int j = 0; j < board.at(0).size(); j++) {
       std::cout << board.at(i).at(j) << ' ';
     }
     std::cout << "\n";
@@ -150,8 +152,8 @@ void gameOfLife::gameLoop() {
   std::vector<std::vector<char>> tmpBigVec;
   for (;;) {
     sleep(1);
-    for (int i = 0; i < board.size(); i++) {
-      for (int j = 0; j < board.size(); j++) {
+    for (long unsigned int i = 0; i < board.size(); i++) {
+      for (long unsigned int j = 0; j < board.size(); j++) {
         tmpSmallVec.push_back(check(i, j));
       }
       tmpBigVec.push_back(tmpSmallVec);
