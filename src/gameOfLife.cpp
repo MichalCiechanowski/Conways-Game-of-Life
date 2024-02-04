@@ -142,7 +142,7 @@ void gameOfLife::gameLoop() {
   setStart();
   render();
   std::vector<char> tmpSmallVec;
-  std::vector<std::vector<char>> tmpBigVec;
+  std::vector< std::vector<char> > tmpBigVec;
   for (;;) {
     sleep(1);
     for (long unsigned int i = 0; i < board.size(); i++) {

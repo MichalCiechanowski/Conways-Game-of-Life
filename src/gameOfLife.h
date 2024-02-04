@@ -1,7 +1,9 @@
 #ifndef GAMEOFLIFE
 #define GAMEOFLIFE
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <unistd.h>
 
 class gameOfLife {
   public:
