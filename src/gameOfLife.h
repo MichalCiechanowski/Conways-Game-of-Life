@@ -8,10 +8,10 @@
 class gameOfLife {
   public:
     gameOfLife(int size);
-    void setStart();
+    void setStart(const char* name);
     void render();
     char check(int x, int y);
-    void gameLoop();
+    void gameLoop(const char* name);
   private:
     int size;
     std::vector< std::vector<char> > board;

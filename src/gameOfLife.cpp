@@ -138,8 +138,8 @@ void gameOfLife::render() {
   std::cout << '\n';
 }
 
-void gameOfLife::gameLoop() {
-  setStart();
+void gameOfLife::gameLoop(const char* name) {
+  setStart(name);
   render();
   std::vector<char> tmpSmallVec;
   std::vector< std::vector<char> > tmpBigVec;
