@@ -1,5 +1,5 @@
 run:
-	g++ -Wall -Wextra src/main.cpp src/gameOfLife.cpp src/setBoard.cpp && ./a.out
+	find src/ -name '*.cpp' -exec g++ -std=c++2b -O2 -Wall {} + && ./a.out
 
 compile:
-	g++ -Wall -Wextra src/main.cpp src/gameOfLife.cpp src/setBoard.cpp
+	find src/ -name '*.cpp' -exec g++ -std=c++2b {} +

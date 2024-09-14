@@ -61,7 +61,7 @@ void gameOfLife::setStart(const char* name) {
     board.at(13).at(9) = 'X';
     board.at(13).at(10) = 'X';
     board.at(13).at(11) = 'X';
-  } 
+  }
   if (!strcmp(name, "blinker")) {
     board.at(1).at(1) = 'X';
     board.at(2).at(1) = 'X';
